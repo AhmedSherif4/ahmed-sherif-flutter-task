@@ -17,6 +17,7 @@ class PlanWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final WIDTH = 1500.0;
     return Stack(
       clipBehavior: Clip.none, // علشان الزرار يطلع برا حدود الStack
       alignment: AlignmentDirectional.topStart,
@@ -24,16 +25,7 @@ class PlanWidget extends StatelessWidget {
         plan.offerLabel != null
             ? Positioned(
                 top: 10,
-                child: CustomPaint(
-                  size: Size(134, (134 * 0.22962962962962963).toDouble()),
-                  painter: RPSCustomPainter(),
-                  child: Text(
-                    plan.offerLabel!,
-                    style: context.typography.caption.copyWith(
-                      color: context.colors.red,
-                    ),
-                  ),
-                ),
+                child: SvgBackgroundText(text: '${plan.offerLabel}'),
               )
             : SizedBox.shrink(),
         Container(
